@@ -1,4 +1,4 @@
-//Variables like gameboard and moves left can be derived from other variables
+//Variables like  moves left can be derived from other variables
 
 const winCondition = [
     [0,3,6],
@@ -18,11 +18,11 @@ let gameBoard = [
 let movesLeft = 9
 let currentPlayer = "X";
 let results = document.getElementById("winner")
+document.getElementById("wipe").addEventListener("click", reset)
 
 startGame()
 
 function startGame(){
-    document.getElementById("wipe").addEventListener("click", reset)
     document.querySelectorAll("td").forEach(cell => cell.addEventListener("click", playerMove));
     results.innerHTML = currentPlayer + "'s Turn"
 }
@@ -35,8 +35,10 @@ function changePlayer(){
     }
     results.innerHTML = currentPlayer + "'s Turn"
 }
-
-function whoWon(){
+function gameOver(){
+    document.querySelectorAll("td").forEach(cell => cell.removeEventListener("click", playerMove));
+}
+function isWin(){
         for (let condition of winCondition){
             const char1 = gameBoard[condition[0]];
             const char2 = gameBoard[condition[1]];
@@ -47,6 +49,7 @@ function whoWon(){
             else if (char1 == char2 && char2 == char3){
                 changePlayer()
                 results.innerHTML = currentPlayer + " Has Won!"
+                gameOver()
                 return true
             }            
         }
@@ -73,7 +76,7 @@ function playerMove(){
         movesLeft -= 1
         changePlayer()
     }
-    whoWon()
+    isWin()
        
     }
 //Function wipes all variables and clears the board and sets it to X's turn
@@ -87,7 +90,7 @@ function reset(){
         "","","",
         "","",""
     ]
-    results.innerHTML = currentPlayer + "'s Turn"
+    startGame()
     movesLeft = 9
 }
 
