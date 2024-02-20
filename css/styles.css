@@ -77,10 +77,13 @@ td:hover{
 }
 #results{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin: 10px;
     padding: 10px;
     margin-left: 10vw;
     margin-right: 10vw;
+}
+#results > output{
+    margin: 10px;
 }
