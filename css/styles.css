@@ -5,12 +5,14 @@ ul{
     list-style-type: none;
     display: flex;
     flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
 }
 .nav-links{
     text-decoration: none;
     color: #b0c3bf;
-    padding: 1em;
     text-align: center;
+    margin: 5px;
 
 }
 header{
