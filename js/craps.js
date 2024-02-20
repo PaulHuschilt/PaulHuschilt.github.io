@@ -20,51 +20,40 @@ function rollDice(){
     console.log("rollDice called")
     dice1 = Math.floor((Math.random() * 6) + 1)
     dice2 = Math.floor((Math.random() * 6) + 1)
-    // dice1 = 11
-    // dice2 = 1
     console.log(dice1, dice2)
     sum = dice1 + dice2
-    // if (firstRoll == true){
-    //     point = dice1 + dice2
-    //     firstRoll = false
-    //     console.log(point)
-    // }
-    // else{
-    //     sum = dice1 + dice2
-    // }
+    
+}
+function displayResults(result){
+    document.getElementById("winner").innerHTML = result
+    document.getElementById("sum").innerHTML = "You rolled a " + sum
 }
 function playerMove(){
     console.log("PlayerMove called");
     rollDice()
     
-    if (isWinOrLose() == true){
-        document.getElementById("point").innerHTML = "Your point is: " + sum
-        document.getElementById("sum").innerHTML = "You rolled a " + sum
-        document.getElementById("winner").innerHTML = "You Win"
+    if (isWinOrLose()){
+        displayResults("You Win")
     }
     else if (isWinOrLose() == false){
-        document.getElementById("point").innerHTML = "Your point is: " + sum
-        document.getElementById("sum").innerHTML = "You rolled a " + sum
-        document.getElementById("winner").innerHTML = "You Lose"
+        displayResults("You Lose")
     }
     else{
-        if (firstRoll == true){
+        if (firstRoll){
             point = sum
+            document.getElementById("point").innerHTML = "Your point is: " + point
         }
-        document.getElementById("point").innerHTML = "Your point is: " + point
-        document.getElementById("sum").innerHTML = "You rolled a " + sum
-        document.getElementById("winner").innerHTML = "Roll Again"
-        console.log(sum)
+        displayResults("Roll Again")
         firstRoll = false
 
     }
 }
 function isWinOrLose(){
-    if (firstRoll == true){
-        if (firstRoll == true && (sum == 7 || sum == 11)){
+    if (firstRoll){
+        if (sum == 7 || sum == 11){
             return true
         }
-        else if (firstRoll == true && (sum == 2 || sum == 3 || sum == 12)){
+        else if (sum == 2 || sum == 3 || sum == 12){
             console.log("test")
             return false
         }
@@ -79,5 +68,10 @@ function isWinOrLose(){
         
 }
 function restart(){
-
+    firstRoll = true
+    document.getElementById("winner").innerHTML = ""
+    document.getElementById("sum").innerHTML = ""
+    document.getElementById("point").innerHTML = ""
+    sum = 0
+    
 }
