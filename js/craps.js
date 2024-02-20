@@ -29,7 +29,7 @@ function displayResults(result){
     document.getElementById("sum").innerHTML = "You rolled a " + sum
 }
 function playerMove(){
-    console.log("PlayerMove called");
+    
     rollDice()
     
     if (isWinOrLose()){
@@ -45,7 +45,6 @@ function playerMove(){
         }
         displayResults("Roll Again")
         firstRoll = false
-
     }
 }
 function isWinOrLose(){
@@ -73,5 +72,4 @@ function restart(){
     document.getElementById("sum").innerHTML = ""
     document.getElementById("point").innerHTML = ""
     sum = 0
-    
 }
