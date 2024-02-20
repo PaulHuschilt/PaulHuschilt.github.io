@@ -29,6 +29,7 @@ h1{
 }
 body{
    background-color: #e2e4e1; 
+   height: 120vh;
 }
 h2{
     text-align: center;
@@ -68,6 +69,8 @@ td{
 }
 td:hover{
     background-color: lightblue;
+    cursor: pointer;
+    transform: scale(1.1);
 }
 #board{
     display: flex;
@@ -86,4 +89,17 @@ td:hover{
 }
 #results > output{
     margin: 10px;
+}
+footer{
+    background-color: #f89048;
+    height: 20vh;
+    position:fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100vw;
+}
+input{
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
 }

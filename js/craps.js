@@ -34,9 +34,11 @@ function playerMove(){
     
     if (isWinOrLose()){
         displayResults("You Win")
+        firstRoll = true
     }
     else if (isWinOrLose() == false){
         displayResults("You Lose")
+        firstRoll = true
     }
     else{
         if (firstRoll){
