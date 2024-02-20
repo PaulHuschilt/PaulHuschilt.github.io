@@ -59,9 +59,9 @@ function isWin(){
         return false
 }
 
-//Concern: event is depracated 
+//Concern: event is depracated used this.id instead
 function playerMove(){
-    const cell = event.target.id;
+    const cell = this.id
     const cellIndex = parseInt(cell)
     let posistion = document.getElementById(cell)
     if (currentPlayer == "X" && posistion.innerHTML == "") {
