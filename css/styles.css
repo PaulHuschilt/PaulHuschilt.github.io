@@ -34,6 +34,7 @@ body{
 h2{
     text-align: center;
     padding: 20px;
+    font-size: 3em;
 }
 form{
     display: flex;
@@ -56,9 +57,10 @@ table, th, td{
     border-collapse: collapse;
 }
 td{
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
     text-align: center;
+    font-size: 80px;
 }
 
 .flex-container{
@@ -102,4 +104,9 @@ input{
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
+    font-size: xx-large;
+}
+input:active{
+    border: 2px inset green;
+    background-color:#bbbbbb;
 }

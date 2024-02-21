@@ -15,7 +15,7 @@ let gameBoard = [
     "","","",
     "","",""
 ]
-let movesLeft = 9
+let movesLeft = 9;
 let currentPlayer = "X";
 let results = document.getElementById("winner")
 document.getElementById("wipe").addEventListener("click", reset)
@@ -26,6 +26,7 @@ function startGame(){
     document.querySelectorAll("td").forEach(cell => cell.addEventListener("click", playerMove));
     results.innerHTML = currentPlayer + "'s Turn"
 }
+//function updates the current player
 function changePlayer(){
     if (currentPlayer == "X"){
         currentPlayer = "O"
@@ -38,6 +39,8 @@ function changePlayer(){
 function gameOver(){
     document.querySelectorAll("td").forEach(cell => cell.removeEventListener("click", playerMove));
 }
+//Function iterates through the win conditions and checks gameboard at the corresponding index's
+//if all characters are the same it returns a win and checks if its a draw or returns false
 function isWin(){
         for (let condition of winCondition){
             const char1 = gameBoard[condition[0]];
@@ -47,9 +50,6 @@ function isWin(){
                 continue
             }
             else if (char1 == char2 && char2 == char3){
-                changePlayer()
-                results.innerHTML = currentPlayer + " Has Won!"
-                gameOver()
                 return true
             }            
         }
@@ -58,29 +58,30 @@ function isWin(){
         }
         return false
 }
-
+//Function gets the element that was clicked, checks if its empty and adds the current players move to the HTML table
+// and to the gameboard at the corresponding index and checks for a win/draw
 //Concern: event is depracated used this.id instead
 function playerMove(){
     const cell = this.id
     const cellIndex = parseInt(cell)
     let posistion = document.getElementById(cell)
-    if (currentPlayer == "X" && posistion.innerHTML == "") {
-        gameBoard[cellIndex] = "x"
-        posistion.innerHTML = "X" 
-        movesLeft -= 1
-        changePlayer()
-        }
-    else if (currentPlayer == "O" && posistion.innerHTML == ""){
-        gameBoard[cellIndex] = "o"
-        posistion.innerHTML = "O"
+    if (posistion.innerHTML == "") {
+        gameBoard[cellIndex] = currentPlayer
+        posistion.innerHTML = currentPlayer 
         movesLeft -= 1
         changePlayer()
     }
-    isWin()
+
+    if (isWin()){
+        changePlayer()
+        results.innerHTML = currentPlayer + " Has Won!"
+        gameOver()
+    }
        
     }
 //Function wipes all variables and clears the board and sets it to X's turn
 function reset(){
+    //Could use a arrow function
     for (let i of document.querySelectorAll("td")){
     i.innerHTML = ""
     }
