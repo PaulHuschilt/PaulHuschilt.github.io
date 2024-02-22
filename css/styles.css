@@ -28,8 +28,12 @@ h1{
     color: #cf963c;
 }
 body{
-   background-color: #e2e4e1; 
-   height: 120vh;
+    background-color: #e2e4e1; 
+    /* background-color: #363838;  */
+    
+}
+main{
+    height: 100vh;
 }
 h2{
     text-align: center;
@@ -93,11 +97,9 @@ td:hover{
     margin: 10px;
 }
 footer{
-    background-color: #f89048;
+    background-color: #363838;;
     height: 20vh;
-    position:fixed;
-    left: 0px;
-    bottom: 0px;
+    position:absolute;
     width: 100vw;
 }
 input{
@@ -109,4 +111,7 @@ input{
 input:active{
     border: 2px inset green;
     background-color:#bbbbbb;
+}
+.rules{
+    text-align: center;
 }
