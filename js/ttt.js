@@ -19,6 +19,7 @@ let movesLeft = 9;
 let currentPlayer = "X";
 let results = document.getElementById("winner")
 document.getElementById("wipe").addEventListener("click", reset)
+let winningResult;
 
 startGame()
 
@@ -36,8 +37,17 @@ function changePlayer(){
     }
     results.innerHTML = currentPlayer + "'s Turn"
 }
+function highlight(color){
+    for (let cell of winningResult){
+        index = cell.toString();
+        document.getElementById(index).style.color = color
+    }
+}
 function gameOver(){
     document.querySelectorAll("td").forEach(cell => cell.removeEventListener("click", playerMove));
+    highlight("red")
+    document.getElementById("winner").style.fontSize = "x-large"
+    document.getElementById("winner").style.fontWeight = 700
 }
 //Function iterates through the win conditions and checks gameboard at the corresponding index's
 //if all characters are the same it returns a win and checks if its a draw or returns false
@@ -50,6 +60,7 @@ function isWin(){
                 continue
             }
             else if (char1 == char2 && char2 == char3){
+                winningResult = condition;
                 return true
             }            
         }
@@ -75,6 +86,7 @@ function playerMove(){
     if (isWin()){
         changePlayer()
         results.innerHTML = currentPlayer + " Has Won!"
+        console.log(winningResult)
         gameOver()
     }
        
@@ -93,6 +105,7 @@ function reset(){
     ]
     startGame()
     movesLeft = 9
+    highlight("black")
 }
 
 // document.querySelectorAll("td").forEach(addEventListener("click", whatIsClicked()))
