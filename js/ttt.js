@@ -1,5 +1,10 @@
-//Variables like  moves left can be derived from other variables
-
+/*
+Sources Used: 
+https://www.w3schools.com/js/default.asp
+https://developer.mozilla.org/en-US/
+https://stackoverflow.com/questions/17665489/using-this-inside-an-event-handler
+Variables like  moves left can be derived from other variables
+*/
 const winCondition = [
     [0,3,6],
     [1,4,7],
@@ -37,17 +42,18 @@ function changePlayer(){
     }
     results.innerHTML = currentPlayer + "'s Turn"
 }
-function highlight(color){
+function highlight(color, weight){
     for (let cell of winningResult){
         index = cell.toString();
         document.getElementById(index).style.color = color
+        document.getElementById(index).style.fontWeight = weight
     }
 }
 function gameOver(){
     document.querySelectorAll("td").forEach(cell => cell.removeEventListener("click", playerMove));
-    highlight("red")
     document.getElementById("winner").style.fontSize = "x-large"
     document.getElementById("winner").style.fontWeight = 700
+    highlight("red", 700)
 }
 //Function iterates through the win conditions and checks gameboard at the corresponding index's
 //if all characters are the same it returns a win and checks if its a draw or returns false
@@ -76,36 +82,38 @@ function playerMove(){
     const cell = this.id
     const cellIndex = parseInt(cell)
     let posistion = document.getElementById(cell)
+    // Checks if the cell is empty
     if (posistion.innerHTML == "") {
         gameBoard[cellIndex] = currentPlayer
         posistion.innerHTML = currentPlayer 
         movesLeft -= 1
-        changePlayer()
     }
-
+    // Ends the game is theres a win otherwise change the player
     if (isWin()){
-        changePlayer()
         results.innerHTML = currentPlayer + " Has Won!"
         console.log(winningResult)
         gameOver()
+    }
+    else{
+        changePlayer()
     }
        
     }
 //Function wipes all variables and clears the board and sets it to X's turn
 function reset(){
-    //Could use a arrow function
-    for (let i of document.querySelectorAll("td")){
-    i.innerHTML = ""
-    }
+    movesLeft = 9
     currentPlayer = "X"
     gameBoard = [
         "","","",
         "","","",
         "","",""
     ]
+    //Could use a arrow function
+    for (let i of document.querySelectorAll("td")){
+    i.innerHTML = ""
+    }
     startGame()
-    movesLeft = 9
-    highlight("black")
+    highlight("black", 400)
 }
 
 // document.querySelectorAll("td").forEach(addEventListener("click", whatIsClicked()))

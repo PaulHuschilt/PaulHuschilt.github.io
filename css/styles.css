@@ -1,5 +1,6 @@
 *{
     margin: 0px;
+    font-size: 1.1rem;
 }
 ul{
     list-style-type: none;
@@ -114,4 +115,6 @@ input:active{
 }
 .rules{
     text-align: center;
+    margin-left: 30vw;
+    margin-right: 30vw;
 }
