@@ -26,14 +26,14 @@ let results = document.getElementById("winner")
 document.getElementById("wipe").addEventListener("click", reset)
 let winningResult;
 
-startGame()
-
 function startGame(){
     document.querySelectorAll("td").forEach(cell => cell.addEventListener("click", playerMove));
     results.innerHTML = currentPlayer + "'s Turn"
 }
+startGame()
 //function updates the current player
 function changePlayer(){
+    //Could use the ternary operator
     if (currentPlayer == "X"){
         currentPlayer = "O"
     }
@@ -70,9 +70,6 @@ function isWin(){
                 return true
             }            
         }
-        if (movesLeft == 0){
-            results.innerHTML = "Its a Draw"
-        }
         return false
 }
 //Function gets the element that was clicked, checks if its empty and adds the current players move to the HTML table
@@ -87,17 +84,20 @@ function playerMove(){
         gameBoard[cellIndex] = currentPlayer
         posistion.innerHTML = currentPlayer 
         movesLeft -= 1
-    }
-    // Ends the game is theres a win otherwise change the player
-    if (isWin()){
-        results.innerHTML = currentPlayer + " Has Won!"
-        console.log(winningResult)
-        gameOver()
-    }
-    else{
-        changePlayer()
-    }
-       
+        // Ends the game is theres a win otherwise change the player
+        if (isWin()){
+            results.innerHTML = currentPlayer + " Has Won!"
+            console.log(winningResult)
+            gameOver()
+        }
+        //If all moves have been made with no win display Draw
+        else if (movesLeft == 0){
+        results.innerHTML = "Its a Draw"
+        }
+        else{
+            changePlayer()
+        }
+    } 
     }
 //Function wipes all variables and clears the board and sets it to X's turn
 function reset(){
@@ -115,6 +115,4 @@ function reset(){
     startGame()
     highlight("black", 400)
 }
-
-// document.querySelectorAll("td").forEach(addEventListener("click", whatIsClicked()))
 
