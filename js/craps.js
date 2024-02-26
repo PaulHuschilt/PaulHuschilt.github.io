@@ -17,12 +17,9 @@ function startGame(){
 }
 startGame()
 function rollDice(){
-    console.log("rollDice called")
     dice1 = Math.floor((Math.random() * 6) + 1)
     dice2 = Math.floor((Math.random() * 6) + 1)
-    console.log(dice1, dice2)
     sum = dice1 + dice2
-    
 }
 function displayResults(result){
     document.getElementById("winner").innerHTML = result
@@ -35,7 +32,6 @@ function playerMove(){
     if (isWinOrLose()){
         displayResults("You Win")
         document.getElementById("dice").removeEventListener("click", playerMove)
-
     }
     else if (isWinOrLose() == false){
         displayResults("You Lose")
@@ -56,7 +52,6 @@ function isWinOrLose(){
             return true
         }
         else if (sum == 2 || sum == 3 || sum == 12){
-            console.log("test")
             return false
         }
     }
@@ -66,8 +61,6 @@ function isWinOrLose(){
     else if (sum == 7){
         return false
     }
-    
-        
 }
 function restart(){
     firstRoll = true
