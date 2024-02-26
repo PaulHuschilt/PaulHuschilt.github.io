@@ -34,11 +34,12 @@ function playerMove(){
     
     if (isWinOrLose()){
         displayResults("You Win")
-        firstRoll = true
+        document.getElementById("dice").removeEventListener("click", playerMove)
+
     }
     else if (isWinOrLose() == false){
         displayResults("You Lose")
-        firstRoll = true
+        document.getElementById("dice").removeEventListener("click", playerMove)
     }
     else{
         if (firstRoll){
@@ -74,4 +75,5 @@ function restart(){
     document.getElementById("sum").innerHTML = ""
     document.getElementById("point").innerHTML = ""
     sum = 0
+    startGame()
 }
