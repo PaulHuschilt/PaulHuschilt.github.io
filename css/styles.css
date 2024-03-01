@@ -150,3 +150,27 @@ input:active{
     }
     
 }
+.view{
+    display: flex;
+}
+.card{
+    
+    border: 5px solid black;
+    border-radius: 5px;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+    white-space: nowrap;
+}
+img{
+    max-height: 400px;
+    width: 100%;
+    height: auto;
+    filter: blur();
+    object-fit: fill;
+}
+.footnote{
+    text-align: center;
+    height: 100px;
+    background-image: linear-gradient(blue 50%, darkgrey);
+}
