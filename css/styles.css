@@ -38,6 +38,7 @@ main{
     height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }
 h2{
     text-align: center;
@@ -98,6 +99,7 @@ footer{
     height: 20vh;
     position:absolute;
     width: 100vw;
+    bottom: 0px;
 }
 input{
     border-color: #cf963c;
