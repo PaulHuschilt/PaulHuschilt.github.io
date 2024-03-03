@@ -31,6 +31,8 @@ header{
 h1{
     color: #cf963c;
     font-size: 1.5rem;
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
 }
 body{
     background-color: #e2e4e1; 
@@ -101,7 +103,7 @@ td:hover{
 footer{
     background-color: #363838;;
     height: 20vh;
-    position:absolute;
+    /* position:absolute; */
     width: 100vw;
 }
 input{
