@@ -257,6 +257,6 @@ section{
     60% {position: fixed; left:  80%;}
     60% {position: fixed; left:  90%;}
     100% {position: static; left: auto;} */
-    0% {transform: translateX(-800px);}
+    0% {transform: translateX(-1200px);}
     100% {transform: translatex(0);}
 }
