@@ -55,3 +55,4 @@ function checkForWin(){
 }
   
 console.log("computer move: ", computerMove)
+

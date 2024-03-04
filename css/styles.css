@@ -101,7 +101,7 @@ td:hover{
     margin: 10px;
 }
 footer{
-    background-color: #363838;;
+    background-color:#c7c9c6;
     height: 20vh;
     /* position:absolute; */
     width: 100vw;
@@ -188,6 +188,9 @@ input:active{
     z-index: 999;
     overflow-y: visible;
     max-width: 200px;
+    animation-name: slideIn;
+    animation-duration: 1s;
+    animation-timing-function:cubic-bezier(0.445, 0.05, 0.55, 0.95)
 }
 .card:hover{
     transform: scale(1.1);
@@ -241,4 +244,19 @@ hr{
 }
 section{
     width: 100%;
+}
+@keyframes slideIn {
+    /* 0% {position: fixed; left: -10px;}
+    10% {position: fixed; left: 10%;}
+    20% {position: fixed; left:  20%;}
+    30% {position: fixed; left:  30%;}
+    40% {position: fixed; left:  40%;}
+    50% {position: fixed; left:  50%;}
+    60% {position: fixed; left:  60%;}
+    60% {position: fixed; left:  70%;}
+    60% {position: fixed; left:  80%;}
+    60% {position: fixed; left:  90%;}
+    100% {position: static; left: auto;} */
+    0% {transform: translateX(-800px);}
+    100% {transform: translatex(0);}
 }

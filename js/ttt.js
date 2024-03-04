@@ -115,4 +115,3 @@ function reset(){
     startGame()
     highlight("black", 400)
 }
-
